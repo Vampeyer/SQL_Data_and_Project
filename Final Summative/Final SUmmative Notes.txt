@@ -1,0 +1,95 @@
+
+
+_______________________________________________________
+
+
+for the final prjoject  , I am asked to simply , but importantly create a database 
+from a CSV file , or , a comma sepereted value file. 
+
+With this as my requirements , 
+
+- - - 
+Your assignment is design and implement a database
+ to store covid19_subset.csv data in 
+ your chosen database management system (DBMS), for example, MySQL. 
+ Specifically, you will follow these steps to do the project: 
+ 1. Design a database schema based on the requirements.  
+ 2. Create a SQL DDL (Data Definition Language) script to define the database schema.  
+ 3. Apply the script in step 2 to create a database in the chosen DBMS  
+ 4. Import covid19_subset.csv to the database created in step 3. 
+ 5. Run a couple of SQL queries to test your database implementation.    
+ 
+ 
+ 
+ 
+ ------------------------------
+ 
+ This was accomplished by downloading MySQL community installer , 
+ which contains several small important pieces of tools. One mainly being MySQL 
+ workbench as a DBMS. 
+ 
+ to start , download the community installer , then inside download MySQL workbench and server. 
+ Open MySQL and click on the plus to create a server connection , follow the steps then open the box
+ that was created to start a connection to the server. 
+ 
+***-Install everything as a full service , and install it as a microsoft service to avoid errors. 
+Install MySQL workbench and MySQL server especially 
+ 
+ 
+ After opening the server - make sure you are connected to it.
+ This can be done by seeing the text that notifies you if you are not connected 
+ OR 
+ by going to the start stop server tab , and making sure the server is connected and started. 
+ 
+ 
+ 
+ - After this , the scripts were ran , 
+
+ - one to first create the database 
+ -then to create a schema for the database. 
+ - then to use or select the schema as the default. 
+ - then to create a table named    covid_cases 
+   with the appropriate columns and types , within  
+   () braces .
+ 
+ =================
+ 
+ this was the script I used ,  
+ 
+ 
+ 
+ -CREATE DATABASE covid_data;
+
+-CREATE SCHEMA covid_data;
+
+-USE covid_data;
+
+-CREATE TABLE covid_cases (
+  iso_code VARCHAR(4) NOT NULL,
+  continent VARCHAR(255) NOT NULL,
+  location VARCHAR(255) NOT NULL,
+  date DATE NOT NULL,
+  total_cases INT NOT NULL,
+  new_cases INT NOT NULL,
+  PRIMARY KEY (iso_code, date)
+)
+
+
+each dash should be ran indicidually.   
+
+
+
+-------------- 
+
+
+
+then , -  AFTer you can click on the  " schemas ' tab , 
+and you should be able to see the default 
+database , with the respective schema and table inside 
+
+*** - may require a server restart
+
+
+
+*** Modify the date format to be correct fo reloading into MySQL Database  
+ - YYYY-DD-MM 

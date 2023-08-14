@@ -1,0 +1,61 @@
+
+ Here are the steps on how to create functions in a schema with code or using MySQL Workbench:
+
+Using code:
+
+Open a MySQL client and connect to the database that you want to create the function in.
+Use the CREATE FUNCTION statement to create the function. The syntax for the CREATE FUNCTION statement is as follows:
+SQL
+
+-
+CREATE FUNCTION function_name (parameter_list)
+RETURNS return_type
+BEGIN
+    function_body;
+END;
+
+
+Use code with caution. 
+function_name is the name of the function.
+parameter_list is a list of parameters that the function takes.
+return_type is the type of value that the function returns.
+function_body is the code that the function executes.
+For example, the following code creates a function called get_patient_info that returns the information for a patient with the specified ID:
+SQL
+
+-
+CREATE FUNCTION get_patient_info (id INT)
+RETURNS VARCHAR(255)
+BEGIN
+    DECLARE patient_info VARCHAR(255);
+    SELECT name, weight, height, BMI INTO patient_info
+    FROM patients
+    WHERE id = id;
+    RETURN patient_info;
+END;
+
+
+
+Use code with caution. Learn more - 
+Once you have created the function, you can use it in your queries. To do this, you can use the SELECT statement to call the function. For example, the following query gets the information for patient with ID 1:
+SQL
+
+-
+SELECT get_patient_info(1);
+
+
+
+Use code with caution. Learn more
+Using MySQL Workbench:
+
+Open MySQL Workbench.
+Click on the "Server" tab.
+In the "Schemas" pane, select the schema that you want to create the function in.
+In the "Objects" pane, right-click and select "New" > "Function".
+In the "Create Function/Stored Procedure" dialog box, enter a name for the function.
+In the "Body" tab, enter the code for the function.
+Click on the "Execute" button.
+Once you have created the function, you can use it in your queries. To do this, you can use the SELECT statement to call the function. For example, if you have created a function called get_patient_info that returns the information for a patient, you can use the following query to get the information for patient with ID 1:
+
+SQL
+SELECT get_patient_info(1);

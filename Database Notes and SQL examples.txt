@@ -1,0 +1,236 @@
+
+
+
+-----SQL and MY SQL Workbench notes  
+
+Main SQL Notes. 
+
+
+0 - Structured Query Language (SQL) –a database language used to create databases and tables, alter/design structure, and move data into, out of, and within a database
+
+
+0 - Constraints – additional information in a command that allows for specific actions on a database object.  NULL, NOT NULL,  UNIQUE, PRIMARY KEY, AND DEFAULT are used when initializing a value for a new record within a table.
+
+
+
+0 - IMPORT/EXPORT -  for adding or extracting data from an existing table in a database.
+
+
+
+0 -MySQL Workbench – a GUI based tool we will use to work with MySQL databases.
+
+
+
+
+
+
+What does DDL Stand For? 
+-Data Definition Language - 
+
+
+
+
+
+
+======================================
+
+
+Basic Structure of SQL Queries - Select
+by Madison WattsMadison Watts
+Lesson 5 of 9
+SQL data manipulation language
+
+The SQL data manipulation language (DML) is used to query and modify database data
+
+SQL DML command statements
+
+SELECT – to query data in the database
+INSERT – to insert data into a table
+UPDATE – to update data in a table
+DELETE – to delete data from a table
+SQL DML Statement syntax notes (in MySQL)
+
+A SQL DML statement is composed of a sequence of clauses in free format. For example, both are fine:
+
+select   *
+
+from     city
+
+where   CountryCode = "USA"
+
+and
+
+select * from city where CountryCode = "USA"
+
+
+bullet
+SQL language is case insensitive. For example, select is the same as SELECT, and CountryCode is the same as counterycode.
+
+
+bullet
+In-line comments begin with --
+
+
+bullet
+Strings can be quoted in single or double quote, for example,   both “USA“ and 'USA’ are valid strings.
+
+Basic Structure of SQL Queries
+ select/from/where/group by/order by
+
+A simple example of SQL queries using these three clauses select, from, and where is:
+-- This in an in-line comment:  note SQL language is case-insentive
+
+select name, population      -- get city name and population
+
+from city                               -- name the table(s) queried
+
+where population > 100000 -- apply the filter condition
+
+Formally, the syntax of basic SQL queries is as follows (the order of clauses must be as given):
+
+*Note only SELECT is required (i.e., the others are optional)
+
+SELECT [Distinct] item(s)
+
+FROM table(s)
+
+WHERE predicate
+
+GROUP BY field(s)
+
+ORDER BY fields
+
+
+--------------------------------------------------------------------
+
+==========================================================================
+ INSERT UPDATE and DELETE  in tables.  
+-------------------------------------------------------------------------
+Modification of Database - insert/update/delete
+by Madison WattsMadison Watts
+Lesson 8 of 9
+
+bullet
+Insert - Use various forms of the Insert statement to insert data into a table.
+ 
+
+
+bullet
+Update - Use Update statement and its options to update data in database tables.
+
+
+bullet
+Delete - Use the Delete statement to delete rows from one or more tables.
+
+--------------------------------------------------------------------------
+INSERT STATEMENT
+
+UPDATE STATEMENT
+
+DELETE STATEMENT
+------------------------------------
+The Insert statement allows you to insert one or more rows into a table.
+ The following illustrates the syntax of the Insert statement:
+
+
+Insert Into table(c1,c2,...)
+Values (v1,v2,...);
+
+
+
+First, Specify the table name and a list of comma-separated columns
+ inside parentheses after the Insert Into clause.
+
+
+
+Then, put a comma-separated list of values of the corresponding 
+columns inside the parentheses following the Values keyword.
+
+
+
+Example:
+Insert a new row into the city table
+
+Insert Into city(id, name, countrycode, district, population)
+Values (4080, “Sky”, “AFG”, “Kabol”, 0);
+
+
+
+Not all columns in the table city are required in the list.
+ If a column is not in the list,
+ the default value of the column will be inserted.
+
+
+========================================================================
+ UPDATE - 
+
+The Update statement updates data in a table. It allows you to
+ change the values in one or more columns of a single row or 
+ multiple rows. The following illustrates the basic syntax of 
+ the UPDATE statement:
+
+UPDATE [LOW_PRIORITY] [IGNORE] table_name
+
+  SET 
+
+  column_name1 = expr1,
+   column_name2 = expr2,
+
+  ...
+  [WHERE condition]
+ 
+Specify the table name after the Update keyword.
+
+Specify which column you want to update and the new value in the SET clause.
+
+Specify which rows to be updated using a condition in the WHERE clause. The WHERE clause is optional. If you omit it, the UPDATE statement will modify all rows in the table.
+
+
+Example:
+
+In the city table, update the population of the row of id equal to 4089:
+
+UPDATE city
+
+SET population = 100
+
+WHERE id = 4080
+
+------------------------------------------
+
+
+
+- DELETE statement - 
+
+The DELETE statement allows you to delete rows from a table.
+ The following illustrates the syntax of the DELETE statement:
+
+DELETE FROM table_name
+WHERE condition;
+
+
+
+First, specify the table from which you delete rows.
+
+
+
+Second, use a condition to specify which 
+rows to delete in the WHERE clause. The DELETE statement
+ will delete rows that match the condition.
+
+Notice that the WHERE clause is optional. If you omit the 
+WHERE clause, the DELETE statement will delete all rows in the table.
+
+
+Example: From the city table, delete the rows which have zero population:
+
+
+delete city
+
+where population = 0
+ 
+ 
+ 
+ ----------------------------------
+ ===========================================================
+ -----------------------------------------------------------

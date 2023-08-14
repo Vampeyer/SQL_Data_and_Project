@@ -1,0 +1,194 @@
+
+
+
+
+
+select   *
+
+from     city
+
+where   CountryCode = "USA"
+
+and
+
+select * from city where CountryCode = "USA"
+
+----------------------------------
+bullet
+SQL language is case insensitive. For example, select is the same as SELECT, and CountryCode is the same as counterycode.
+
+
+bullet
+In-line comments begin with --
+
+
+bullet
+Strings can be quoted in single or double quote, for example, 
+  both “USA“ and 'USA’ are valid strings.
+
+=-==============================================
+
+-- Find cities in USA, which have population less than one
+-- hundred thousands, and list the result in ascending
+ -- order of population
+
+select name, district, population from city
+
+Where Countrycode = "USA" and population < 100000
+
+Order by population asc;  
+
+============-- 
+
+Find the number of country rows 
+
+select count(*) as number_of_countries from country;
+
+
+
+===================================
+-- Get countrylanguage rows limit to 5  
+
+select *
+
+from countrylanguage
+
+ limit 5;
+ 
+ ====================================
+ 
+ -- Get 5 most popular languages spoken in USA  
+
+select *
+from countrylanguage
+
+Where countrycode = "USA"
+
+Order by percentage dec
+
+limit 5;
+
+
+
+=============================================
+
+Joining (or linking) two tables
+orhZYSNDlmRmEjJt-2021-02-02_13-46-26.jpg
+Query In the world database, find all the cities in the country whose (country) Name is Brazil.
+
+  To answer this query, we join the two tables, city and country, to formulate the SQL statement as follows:
+
+  select city.*
+
+  from city, country
+
+  where city.CountryCode = country.code and
+
+   country.name = "Brazil"
+   
+   
+   
+   
+   
+   
+   ====================================
+   
+   
+   Commonly Used Aggregate Functions
+
+
+bullet
+Avg() - Return the average of non-NULL values
+
+
+bullet
+Count() -  Return the number of rows in a group, including rows with NULL values.
+
+
+bullet
+Max() -  Return the highest value (maximum) in a set of non-NULL values.
+
+
+bullet
+Min() - Return the lowest value (minimum) in a set of non-NULL values.
+
+
+bullet
+Stdev() - Return the population standard deviation.
+
+
+bullet
+Sum() - Return the summation of all non-NULL values a set.
+
+========================================================================================
+
+
+Group By Clause Example
+
+In the world database, we want to count the number of countries in each continent.
+
+2021-02-02_14-24-39.jpg
+-- Count the number of countries in each continent select Continent, count(code) as NumberOfCountries
+from country
+group by continent
+order by continent
+
+
+===========================================================
+Having Clause Example
+
+In the world database, we want to find all the continents which have more than 20 countries.
+ 
+
+2021-02-02_14-26-34.jpg
+select Continent, count(code) as NumberOfCountries
+from country
+group by continent
+having count(code) > 20
+
+============================================
+
+
+
+
+
+===============================================
+========================================================
+===================================================
+======================================
+============================================
+
+
+   Database Creation Example  
+
+CREATE DATABASE employees: 
+USE employees ; 
+CREATE TABLE employees (
+emp_no INT NOT NULL 
+birth_date NOT NULL 
+first_name VARCHAR (14) NOT NULL 
+last_name VARCHAR (16) NOT NULL 
+hire_date NOT NULL 
+PRIMARY KEY	 (emp_no)
+
+)  ; 
+Create Table 
+	salaries(
+emp_no INT NOT NULL 
+salary INT NOT NULL 
+from_date DATE NOT NULL 
+to_date DATE NOT NULL
+FOREIGN KEY(emp_no) REFERENCES employees(emp_no)ON DELETE CASCADE
+PRIMARY KEY(emp_no, from_date)
+
+
+
+
+
+
+
+
+
+
+
+	) 

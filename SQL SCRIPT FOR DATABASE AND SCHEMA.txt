@@ -1,0 +1,31 @@
+
+Sure, here is the MySQL script to create a database and a schema, and then create a table to store the COVID-19 data with the parameters you provided:
+
+SQL
+CREATE DATABASE covid_data;
+
+CREATE SCHEMA covid_data;
+
+USE covid_data;
+
+CREATE TABLE covid_cases (
+  iso_code VARCHAR(2) NOT NULL,
+  continent VARCHAR(255) NOT NULL,
+  location VARCHAR(255) NOT NULL,
+  date DATE NOT NULL,
+  total_cases INT NOT NULL,
+  new_cases INT NOT NULL,
+  PRIMARY KEY (iso_code, date)
+);
+Use code with caution. Learn more
+This script will create a database called covid_data, a schema called covid_data, and a table called covid_cases with the following columns:
+
+iso_code: A varchar column for the country's ISO code.
+continent: A varchar column for the country's continent.
+location: A varchar column for the country's name.
+date: A date column for the date of the data.
+total_cases: An integer column for the total number of COVID-19 cases in the country on the given date.
+new_cases: An integer column for the number of new COVID-19 cases in the country on the given date.
+The PRIMARY KEY constraint on the iso_code and date columns ensures that each row in the table is uniquely identified by the country's ISO code and the date of the data.
+
+I hope this helps! Let me know if you have any other questions.

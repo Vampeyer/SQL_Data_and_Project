@@ -1,0 +1,31 @@
+
+
+
+
+
+select   *
+
+from     city
+
+where   CountryCode = "USA"
+
+and
+
+select * from city where CountryCode = "USA"
+
+----------------------------------
+bullet
+SQL language is case insensitive. For example, select is the same as SELECT, and CountryCode is the same as counterycode.
+
+
+bullet
+In-line comments begin with --
+
+
+bullet
+Strings can be quoted in single or double quote, for example, 
+  both “USA“ and 'USA’ are valid strings.
+
+=-==============================================
+
+
